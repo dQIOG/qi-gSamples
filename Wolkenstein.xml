@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title type="main">Eine Baurechnung Oswalds II. von Wolkenstein für die Burg Rodenegg (1465 – 1467)</title>
+            <title type="sub">Edition und Kommentar (Digital)</title>
+            <principal>Claudia Feller</principal>
+            <respStmt>
+               <resp>Conversion to TEI</resp>
+               <persName>NN</persName>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>Austrian Centre for Digital Humanities and Cultural Heritage</publisher>
+            <idno type="Rechnungsbücher">1</idno>
+         </publicationStmt>
+         <notesStmt>
+            <relatedItem type="publishedIn">
+               <bibl>Baurechnungen</bibl>
+            </relatedItem>
+         </notesStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <institution>Archiv</institution>
+                  <repository>Bestandsgruppe XY</repository>
+                  <idno type="signatory">Signatur NN</idno>
+               </msIdentifier>
+            </msDesc>
+            <bibl>
+               <biblScope unit="volume">NN</biblScope>
+               <biblScope unit="page">1r-4r</biblScope>
+            </bibl>
+         </sourceDesc>
+      </fileDesc>
+      <profileDesc>
+         <textClass>
+            <classCode scheme="dQIÖG">Rechnungsbuch</classCode>
+         </textClass>
+      </profileDesc>
+      <revisionDesc>
+         <listChange>
+            <change type="creation" who="#ds" when="2017-02-27T09:44:16.455+01:00">Automatically upconverted from DOCX document.</change>
+         </listChange>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <front>
+         <div type="editorialNote">
+            <p>Einleitung mit Fußnoten <note place="foot" xml:id="d4618e192">Inhalt der Fußnote</note></p>
+         </div>
+      </front>
+      <body>
+         <div type="edition">
+            <p xml:space="preserve"><pb n="1r"/>Item<note place="foot" xml:id="d4618e193">die Einträge auf fol. 1r sind mit Ausnahme der separat gekennzeichneten Textstelle von Hand A geschrieben</note> vermerckt den paw, so ich, <rs key="d14380e421"><persName>Oswalt von Wolckenstain</persName></rs>, an dem <placeName>geschloss Rodneckg</placeName> gethan hab <date from="1465" to="1467">in dem LXV und in LXVI und in dem LXVII jar</date>:</p>
+            <p xml:space="preserve"><seg type="context" n="1" xml:space="preserve" xml:id="d4618e183">Item von erst so ist vor dem gescloss  Rodneckg ain gemawrtter keller und zwen gemawrt stael, da was ain pehawssung auff, die was gancz fawl und viell nider, da han ich ain newen stadel darauff geseczt der wortten, das die <rs key="index:d14380e421">staell</rs> und der keller nicht gar einviell.</seg>.</p>
+         </div>
+      </body>
+      <back>
+         <div type="commentary">
+            <note xml:id="d14380e421">
+               <p>Wohl die beiden Melker Patres Dominikus Kefer und Adalbert Eder, welche am 26. August 1709 zu einer Reise in die Steiermark aufgebrochen waren, wozu sie von Abt Dietmayr die Erlaubnis zu einer dreiwöchigen Abwesenheit erhalten hatten. Das Datum ihrer Rückkehr ist nicht überliefert, doch wird Kefer am 22. September wieder in Melk vermerkt (PE 5 20, 22). In Admont sind für die fragliche Zeit keine Prioratsephemeriden oder vergleichbare Aufzeichnungen erhalten, aus welchen sich ein Aufenthalt bestätigen ließe; für diese Auskunft danken die Autoren Johann Tomaschek (Admont).</p>
+            </note>
+            <note xml:id="d4618e207">
+               <p>Zu Oswald II. von Wolkenstein vgl. oben ###–###.</p>
+            </note>
+         </div>
+      </back>
+   </text>
+</TEI>
