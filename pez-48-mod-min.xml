@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../schema/dqioeg.rng" type="application/xml" ?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="pez-0048">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <!-- Die lfd. Zählung im Editionsband ist m. E. eher kein Bestandteil des Titel, da diese sich nicht aus der
+               Vorlage an sich ergibt, sondern eine moderne, mehr oder weniger arbiträre Hinzufügung ist -->
+            <title type="main"><!-- deleatur: 48 -->René Massuet an Bernhard Pez. 1710-03-07. Paris (St.-Germain-des-Prés).</title>
+            
+            <!-- diese allgemeine Angabe paßt eher in <editionStmt> -->
+<!--            <title type="sub">Digital Edition</title>-->
+            
+            <!--  principal: gibt den „Principal Investigator“ (im amerikanischen Sinne) an – bei einer Edition also am
+               ehesten den/die Projektleiter; ich kann nicht beurteilen, ob das hier der Fall ist.
+                  Eine/n Herausgeber/in bringt man besser im <publicationStmt> unter
+                  Der/die tatsächliche Editor/in des Textes sollte an dieser Stelle in <editor> genannt werden. -->
+            <!-- <principal>Thomas Wallnig</principal> -->
+            
+            <!-- editor eingefügt, auch als Ziel für editorische Eingriffe, vgl. unten zu <body>. -->
+            <editor xml:id="editor">N. N.</editor>
+            
+            <respStmt>
+               <resp>Conversion to TEI</resp>
+               <persName>Daniel Schopper</persName>
+            </respStmt>
+         </titleStmt>
+         
+         <!-- Angaben zur Edition des Originales durch die vorliegende Datei -->
+         <editionStmt>
+            <p>digital edition</p>
+         </editionStmt>
+         <publicationStmt>
+            <!-- es könnte unterschieden werden zwischen <publisher> (Entität, die für die Veröffentlichung verantwortlich
+               ist) und <distributor> (Entität, die die TEI-Datei verfügbar macht) -->
+            <publisher>Austrian Centre for Digital Humanities</publisher>
+            <idno type="pezEd">48</idno>
+         </publicationStmt>
+         
+         <!-- Vorschlag für die Benennung der digitalen bzw. hybrigend Editionsreihe als Reihe -->
+         <seriesStmt>
+            <title>dQIÖG</title>
+            <!-- Zählung innerhalb dieser Reihe – fingierte Nummer als Beispiel -->
+            <biblScope>1</biblScope>
+         </seriesStmt>
+         
+         <notesStmt>
+            <relatedItem type="publishedIn">
+               <bibl>Die gelehrte Korrespondenz der Brüder Pez, Text, Regesten, Kommentare; Band 1: 1709–1715.</bibl>
+            </relatedItem>
+            <relatedItem type="otherEdition">
+               <!-- Anm.: Sigle nicht hier angeben, da nicht Teil des Buchtitels. Angabe erfolgt in
+                  tei:sourceDesc/tei:listWit -->
+               <bibl xml:id="schelhorn_ed">Schelhorn, Amoenitates 13 279–284 Nr. I<!-- (S).--><note>Zur Edition bei Schelhorn vgl. Einleitung, Abschnitt III.</note></bibl>
+            </relatedItem>
+         </notesStmt>
+         <sourceDesc>
+            <listWit>
+               <!--  Ein leeres <witness> ist eine gute Kodierung für das Fehlen des Originals, ggf. kann auch eine note
+                  zusätzlich angebracht werden.
+                     Die Verwendung des Attributes @ana an dieser Stelle ist denkbar, grundsätzlich müssen aber alle
+                  Verweise, die im Attribut @ana gemacht werden, an einer Stelle im Header definiert werden oder ein
+                  externes Vokabular benutzen, auf das hier mittels voller URL verwiesen wird.
+                     Es können auch mehrere <listWit> (z. B. mit einem <head>) benutzt werden, um mehrere Editionen etc.
+                  übersichtlich zu gruppieren.
+                     Zu <rs> hier vgl. auch die Anm. oben innerhalb von <relatedItem> -->
+               
+               <!-- Vorschlag für Angaben zu den Hanschriften; kann auch eine detailliertere Handschriftenbeschreibung
+                  enthalten; kann auch für Inkunabeln und Frühdrucke verwendet werden -->
+               <witness ana="cmif:manuscript" />
+               <witness xml:id="B" ana="cmif:copy">
+                  <msDesc>
+                     <ab>StiA Melk, Karton 7 Patres 9, Abschriftencodex, 117r–119v</ab>
+                  </msDesc>
+               </witness>
+               <witness xml:id="C" ana="cmif:draft">
+                  <msDesc>
+                     <ab>BN, FF 17680, 244r–v</ab>
+                  </msDesc>
+                </witness>
+               <witness xml:id="S" ana="#edition" sameAs="#schelhorn_ed"/>
+            </listWit>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <!-- Für Pez: in einer note im notesStmt hinterlegen -->
+         <samplingDecl>
+            <p>Dem Editionstext wird die Überlieferung B zugrunde gelegt, jedoch nach C und S emendiert, wo diese
+               miteinander übereinstimmend eine andere Lesart bieten. Inhalte aus dem Konzept, die in den auf der
+               Ausfertigung fußenden Überlieferungen fehlen, werden im Regest zwischen Asterisci gesetzt.</p>
+         </samplingDecl>
+         
+         <!--  in der <editorialDecl> können die Editionsrichtlinien dokumentiert werden; hierzu sind spezielle Elemente
+            vorhanden: <correction>; <hyphenation>; <interpretation>; <normalization>; <punctuation>; <quotation>;
+            <segmentation>; in <p> oder <ab> können dann weitere Angaben ergänzt werden.
+               Die Angaben hier können für alle Teile einer Edition gemeinsam gesetzt werden, entweder explizit oder
+            über Mechanismen wie <teiCorpus> oder Verweise.-->
+         <!--<editorialDecl>
+            
+         </editorialDecl>-->
+         
+         <!--  An mehreren Stellen werden sog. „private URIs“ verwendet (diese haben hier die Form „index:d14380e25705“;
+            damit nachvollziehbar ist, wie diese aufzulösen sind (d. h. wie hieraus eine korrekte, les- und
+            verarbeitbare URL erstellt werden kann), müssen die verwendeten URIs definiert und eine Auflösung
+            angegeben werden.
+               Der Hintergedanke hier ist, daß es dieser Meachnismus erlaubt, statt fixer Adressen an jeder Stelle
+            nur die wichtigsten Infos zu hinterlegen – so kann verhindert werden, daß bei der Änderung z. B. einer
+            Web-Adresse alle Werte von @ref und @target in <ptr>, <ref>, <rs> etc. angepaßt werden müssen. -->
+         <listPrefixDef>
+            <prefixDef ident="letter" matchPattern="(\d+)" replacementPattern="$1.xml">
+               <!-- für das Präfix „letter“ in Angaben wie „letter:54“ wir definiert, daß hieraus die Datei „54.xml“
+                  zu erkennen ist. -->
+            </prefixDef>
+            <prefixDef ident="index" matchPattern="(.+)" replacementPattern="$1">
+               <!-- hier wären aus den Indexangaben dann Links in das online gestellte Register möglich und die
+                  Grund-URL des Registers einzutragen -->
+            </prefixDef>
+            <prefixDef ident="cmif" matchPattern="(.*)" replacementPattern="https://encoding-correspondence.bbaw.de/v1/CMIF.html#$1">
+               <ab>Die Überlieferungssituation wird anhand der Basis-Text-Typen des (<ref
+                     target="https://encoding-correspondence.bbaw.de/v1/CMIF.html">Correspondence Metadata Interchange
+                  Format</ref> vorgenommen.</ab>
+            </prefixDef>
+         </listPrefixDef>
+      </encodingDesc>
+      <profileDesc>
+          <correspDesc>
+            <correspAction type="sent">
+               <persName>René Massuet</persName>
+               <date when="1710-03-07">1710-03-07</date>
+               <placeName>Paris (St.-Germain-des-Prés)</placeName>
+            </correspAction>
+            <correspAction type="received">
+               <persName>Bernhard Pez</persName>
+            </correspAction>
+            
+            <correspContext>
+               <!--  es sollte expplizite Verknüpfungen vorgenommen werden, damit auf die angegebenen Briefe verlinkt
+                  werden kann. Dabei können auch <ptr> verwendet werden, wo kein Text zu erwarten ist.
+                     Zur Verwendung von <rs> und @xml:space vgl. unten zu <text>. -->
+               <ptr type="prev" target="letter:24" />
+               <ptr type="next" target="letter:68" />
+               
+               <!-- Für Pez einfach belassen -->
+               <ab type="sentWith">Versendet von <rs type="place" ref="index:d10854e27374" role="origin">St.
+                     Gallen</rs> bis <rs type="place" ref="index:d14380e28088" role="destination">Melk</rs> mit <ptr
+                     target="letter:53" />.</ab>
+               <ab type="sentWith">Versendet von <rs type="place" ref="index:d10854e32902" role="origin">Wiblingen</rs>
+                  bis <rs type="place" ref="index:d14380e28088" role="destination">Melk</rs> mit <ptr target="letter:58"
+                     />.</ab>
+               <ptr type="sentWith" target="letter:58" />
+               
+               <ptr type="mentions" target="letter:24" />
+               <ptr type="mentionedIn" target="letter:57" />
+               <ptr type="mentionedIn" target="letter:58" />
+               <ptr type="mentionedIn" target="letter:62" />
+               <ptr type="mentionedIn" target="letter:68" />
+            </correspContext>
+         </correspDesc>
+         
+         <!-- Für das Regest kann das Element <abstract> benutzt werden, um diese editorischen Anmerkungen vom
+            Quellentext getrennt unterzubringen (vgl. dazu auch unten zu <text>).
+               Spezifisch für Pez wurde dabei für jede der Spitzklammer-Marken ein eigener Absatz erzeugt, der mit dem
+            erzeugten Absatz im Text (vgl. unten zu <body>) über das Attribut @corresp verknüpft ist.
+               Zu <rs> vgl. unten die Anm. zu <text>; an dieser Stelle erfolgte dabei keine manuelle Kontrolle der
+            einzelnen Elemente -->
+         <!-- TODO oXygen-Kommentare entfernen -->
+         <abstract>
+            <p corresp="#seg1">RM begrüßt BPs Vorhaben („<rs key="index:d10854e23377">Bibliotheca Benedictina</rs>“; 24) und sagt namens der <rs key="index:d14380e22462">Mauriner</rs> Hilfe zu, weil das Unternehmen zur Ehre des Ordens *und zum Nutzen der <?oxy_custom_start type="oxy_content_highlight" color="235,192,230"?>Gelehrtenrepublik<?oxy_custom_end?>* gereicht. Zugleich bittet er um Geduld.</p>
+            <p corresp="#seg2">RM berichtet von <rs key="index:d14380e25581">Jean Mabillons</rs> Werk der „<rs key="index:d14380e25705">Annales OSB</rs>“, das bei dessen Tod <rs key="index:d10854e17940">vier erschienene Bände</rs> und das druckfertige Manuskript eines <rs key="index:d14380e25749">fünften Bandes</rs> umfasste, welcher bis zum Tod des <rs key="index:d14380e5312">Hl. Bernhard</rs> reicht. <rs key="index:d14380e25581">Mabillons</rs> Schüler <rs key="index:d14380e38364">Thierry Ruinart</rs> hat die Fortführung auf sich genommen, ist aber selbst vor wenigen Monaten gestorben, sodass die Oberen nun RM gegen seinen Willen mit der Weiterführung beauftragt haben.</p>
+            <p corresp="#seg3">Bevor er sich mit den „<rs key="index:d14380e25705">Annales OSB</rs>“ beschäftigt, möchte RM noch die Edition der Schrift „<rs key="index:d14380e19786">Contra haereses</rs>“ des <rs key="index:d14380e19780">Irenäus von Lyon</rs> abschließen, die bereits im Druck ist und im kommenden Sommer erscheinen soll. Anschließend wird er <rs key="index:d14380e25581">Mabillons</rs> <rs key="index:d14380e25877">Nachlass</rs> (Mabillonii scrinia) sowie die bereits eingelangten und noch einlangenden Zusendungen aus anderen Klöstern sichten. Nützliches für BP will er dabei abschreiben und zusenden lassen.</p>
+            <p corresp="#seg4">Ohne von BPs Vorhaben zu wissen, haben die <rs key="index:d14380e22462">Mauriner</rs> bereits vor einiger Zeit einen Rundbrief an die <rs key="index:d14380e12712">französischen</rs> Klöster (Gallicana monasteria) ausgesendet und unter anderem zur Zusammenstellung von Schriftstellerkatalogen aufgefordert. RM will demnächst *nach Ostern* ein weiteres Schreiben versenden. RMs und BPs Unternehmen haben zwar die benediktinischen Schriftsteller als gemeinsamen Gegenstand, doch sind diese bei BP das hauptsächliche Thema, bei RM nur ein Nebenaspekt. Sobald er sich der <rs key="index:d14380e25749">Arbeit an den Annalen</rs> widmen kann, wird RM BP alles, was von Nutzen sein könnte, gerne überlassen. Gegenwärtig wäre die sichere Zusendung wegen der <rs key="index:d10854e29346"><?oxy_custom_start type="oxy_content_highlight" color="255,255,0"?><?oxy_comment_start author="Mayer" timestamp="20170410T170137+0200" comment="Bester Anknüpfungspuunkt für Span. Erbfolgekrieg? Oder weiter unten Friedensschluss?" mid="2"?>turbulenten Zeiten<?oxy_custom_end?><?oxy_comment_end mid="2"?></rs> schwierig.</p>
+            <p corresp="#seg5">RM empfiehlt BP, die folgenden Werke anzukaufen und zu verwenden: die vier erschienenen Bände der von <rs key="index:d14380e25581">Mabillon</rs> herausgegebenen „<rs key="index:d10854e17940">Annales OSB</rs>“; die neun Bände der „<rs key="index:d14380e25664">Acta sanctorum OSB</rs>“; die vier Bände der „<rs key="index:d14380e25828">Vetera analecta</rs>“ (von Mabillon); die dreizehn Bände des „<rs key="index:d14380e150">Veterum scriptorum spicilegium</rs>“ (von d’Achery). Diese letzteren beiden <rs key="index:d14380e22462">maurinischen</rs> Werke sind inzwischen auch in <rs key="index:d14380e12712">Frankreich</rs> schwer zu bekommen. Sollte BP <rs key="index:d14380e12712">Französisch</rs> lesen können, so empfiehlt RM die „<rs key="index:d14380e10193">Nouvelle bibliothèque</rs>“ des <rs key="index:d14380e32292">Pariser</rs> Theologen <rs key="index:d14380e10181">Louis Ellies Du Pin</rs>. Die von dem <rs key="index:d14380e11399">Engländer</rs> <rs key="index:d14380e7705">William Cave</rs> verfasste „<rs key="index:d14380e7715">Scriptorum ecclesiasticorum historia literaria</rs>“ wird BP wohl bekannt sein, da sie 1693 zu <rs key="index:d14380e14682">Genf </rs>neu <rs key="index:d10854e5031">aufgelegt</rs> worden ist. Die „<rs key="index:d14380e10021">Bibliotheca Cluniacensis</rs>“ (von Duchesne und Marrier), die „<rs key="index:d10854e30928">Bibliotheca Cisterciensis</rs>“ (von Tissier), die „<rs key="index:d14380e10008">Floriacensis bibliotheca</rs>“ (von Du Bois-Olivier) sowie die Arbeiten des <rs key="index:d14380e24482">Aubert Le Mire</rs> sind weithin geläufige Werke. Diese Hinweise schickt RM vorläufig, bis er Näheres mitteilen kann.</p>
+            <p corresp="#seg6">Im Gegenzug erhofft sich RM seinerseits Unterstützung von BP. Er benötigt Informationen zu <rs key="index:d14380e28088">Melk</rs> und den umliegenden Klöstern: Angaben zu Gründung und Privilegien, Stiftern und Schenkungen, die Reihen der Äbte und Angaben zu berühmten Männern, Memorabilien aus der Klostergeschichte, Urkunden sowie Denkmäler und Inschriften. BP soll sich jedoch nicht selbst mit diesen Arbeiten belasten, sondern dafür Freiwillige unter seinen Ordensbrüdern gewinnen.</p>
+            <p corresp="#seg7">RM versendet den Brief über den Bibliothekar <rs key="index:d10854e20658">Moritz Müller</rs> in <rs key="index:d10854e27374">St. Gallen</rs>, weil es bis zu einem Friedensschluss keinen anderen Weg gibt.</p>
+         </abstract>
+      </profileDesc>
+   </teiHeader>
+   
+   <!--  Das relativ neue Element <standOff> erlaubt eine gesammelte und untergliederte Auflistung von Anmerkungen und
+      Definitionen, die nicht zu den Metadaten des Textes gehören. Hier können z. B. Personenlisten hinterlegt werden
+      oder, wie hier geschehen, Anmerkungen gesammelt werden, die nicht an einem Platz verankert sind (wie eine
+      klassische Fußnote), sondern sich, wie hier bei Pez, auf einen Textbereich beziehen.
+         Dieser Abtrennung erfolgt, um innerhalb von <text> nur den Text der Originalquelle, editorische Variantenmit 
+      und Anmerkungen mit direktem Stellenbezug zu hinterlegen.
+         Für Anmerkungen/Kommentare kann dabei je Gruppe von von Anmerkungen eine eigene <listAnnotation> erstellt
+      werden, um gleichartige Annotationen zu grupppieren.
+         Interpretatorische Anmerkungen (z. B. zur Klassifizierung von Textabschnitten wie in einer Urkunde) können
+      dabei innerhalb von <spanGrp> (mit <span>) oder <interpGrp> (mit <interp>) gemacht werden.
+         Weitergehende Informationen zu Entitäten können in speziellen Listenelementen hinterlegt werden (z. B. für
+      Personen in <listPerson> mit <person>; für Orte in <listPlace> mit <place>; etc. -->
+   <standOff>
+      <!--  Die einzelnen Stellenkommentare wurden aus <back> hierher verschoben zur Trennung des Originaltextes von den
+         editorischen Anmerkungen (vgl. hierzu auch die Anm. unten zu <text>).
+            Anmerkungen, die nicht an ihrer Stelle „verankert“ sind (d. h. nicht unmittelbar bei dem Text stehen, auf
+         den sie sich beziehen, verweisen dabei auf die Textstelle (sowohl punktuell als auch auf einen oder mehrere
+         Bereiche): der Verweis erfolgt von der <note> (mittels des @target-Attributes) auf die entsprechende Stelle(n).
+         Hierzu werden im Text <anchor>-Elemente gesetzt, die die Eckpunkte der Stelle(n) markieren.
+            Entsprechend wird von einer <span> mit den Attributen @from und @to eine Interpretation mit exakt einer
+         Stelle verknüpft. Der umgekehrte Weg ist vorgesehen, wenn eine Interpretation „wiederverwendbar“ angelegt ist,
+         also an mehreren Textstellen vorkommen kann: dann werden <interp> mit IDs versehen, auf die dann aus Elementen
+         im Text mit dem Attribute @ana verwiesen werden kann. Ein Beispiel wären mehrere Listen in einem Dokumente, die
+         jeweils die Angabe @ana="#einkaufliste" enthalten, die dann in <interp xml:id="einkaufsliste"> summarisch
+         beschrieben werden.
+            In diesen <note> wird im Attribut @target ein Bereich angegeben, auf den sich diese Anmerkung bezieht; eine
+         range besteht dabei aus einem oder mehreren Paaren von Angaben, um die Bereiche zu idntifizieren. Dieses
+         Vorgehen sieht zwar komplizierter aus, hat aber den Vorteil, daß sich eine Anmerkung auch auf Textbereiche
+         beziehen kann, die durch andere Bereiche unterbrochen sind.
+            Im Rückgriff auf die Verwendung in Pez wurde in @corresp noch ein Link auf das (im Text aus den bisherigen
+         <seg> erstellte) <p> gesetzt, innerhalb dessen sich die kommentierte Textstelle befindet. Diese dient nur einer
+         späteren Vereinfachung und wäre nicht zwingend nötig, da sich diese Angabe ja aus der Position der Anker
+         ergibt, an denen die Anmerkunge festgemacht ist.
+            Die Verwendung von <mentioned> und <p> in <note>, wie hier umgesetzt, ist eher unüblich, soll aber die 
+         vorhandenen Angaben möglichst vollständig übernehmen. Technisch könnten die Lemma-Angaben aber auch über die
+         angegebene range aus dem Fließtext extrahier werden, ohne daß sie hier repliziert werden müssen. Für das reine
+         semantische Markup sind sie nicht nötig (insbesondere machen sie Annahmen zu einer spezifischen Form der
+         späteren Ausgabe).
+            Zur Verwendung von <rs> vgl. unten die Anm. zu <text>. An dieser Stelle wurden keine manuellen Anpassungen
+         der einzelnen <rs>-Angaben vorgenommen.
+            Die rein textlichen Verweise auf andere Briefe wurden durch Verlinkungen ersetzt, die den „private URI“-
+         Mechanismus nutzen (vgl. dazu oben im <teiHeader> bei <listPrefixDef>). Darüberhinaus wurden aus den reinen
+         Spitzklammer-Angaben Verlinkungen erstellt, die auf die aus den <seg> erstellten <p> verweisen (vgl. zu dieser
+         Änderung auch unten zu <text>). -->
+      <listAnnotation type="commentary">
+         <note target="#range(right('n1'), left('n1e'))" n="1" anchored="false" corresp="#seg1">Die Enzyklik BPs
+            (<ref type="letter" target="letter:24">24</ref>) war von ihrem Empfänger, Prior Achille-Robert Marcland von
+            St.-Germain-des-Prés, an RM zur Beantwortung weitergegeben worden; vgl. <ref type="letter"
+               target="letter:32">32</ref> <ref target="letter:32#seg3">3</ref>.</note>
+         <note target="#range(right('n2'), left('n2e'))" n="2" anchored="false" corresp="#seg2">Ruinart war im Alter von
+            52 Jahren während einer Bibliotheksreise in die Champagne plötzlich erkrankt und nach wenigen Tagen, am 27.
+            September 1709, im Kloster Hautvillers verstorben. Zu ihm vgl. <rs type="bibl" key="bibl:15602">Chaussy,
+               Bénédictins</rs> 2 50; <rs type="bibl" key="bibl:15604">Chaussy, Matricula</rs> 63; <rs type="bibl"
+               key="bibl:36380">Jadart, Origine</rs> 30–38; <rs type="bibl" key="bibl:14772">Tassin, Histoire
+               littéraire</rs> 273–283; <rs type="bibl" key="bibl:20066">Vanel, Nécrologe</rs> 87–90; <rs type="bibl"
+               key="bibl:20356">Wilhelm et al., Nouveau supplément 2</rs> 200–205; zuletzt: <rs type="bibl"
+               key="bibl:15032">Barbeau, Présentation</rs> X–XXXVIII.</note>
+         <note target="#range(right('n3'), left('n3e'))" n="3" anchored="false" corresp="#seg3">Zu RMs Irenäus-Ausgabe
+            vgl. am ausführlichsten <rs type="bibl" key="bibl:20068">Vanel, Savants lyonnais</rs> 334–362.</note>
+         <note target="#range(right('n4'), left('n4e'))" n="4" anchored="false" corresp="#seg3">Die Reste dieses
+            Materials finden sich heute in den Codices BN FF 17696–17700 („Papiers de D. Jean Mabillon“).</note>
+         <note target="#range(right('n5'), left('n5e'))" n="5" anchored="false" corresp="#seg4">Im Zuge der Arbeiten an
+            den „Acta sanctorum OSB“ und „Annales OSB“ waren schon mehrfach Rundschreiben versendet worden: <rs
+               type="bibl" key="bibl:17880">Leclercq, Mabillon 2</rs> 752, 759f.; <rs type="bibl" key="bibl:17892"
+               >Lecomte, Publication</rs> 256, 258. Von jener Enzyklik, die Ruinart im März 1709 u. a. an Anselm Fischer
+            gesendet hatte, jener an BP weiterleitete (<ref type="letter" target="letter:43">43</ref>) und dieser
+            wiederum an etliche Korrespondenten verteilte (<ref type="letter" target="letter:110">110</ref>, <ref
+               type="letter" target="letter:111">111</ref>, <ref type="letter" target="letter:134">134</ref>), ist
+            anscheinend kein Exemplar erhalten: vgl. <rs type="bibl" key="bibl:17880">Leclercq, Mabillon 2</rs> 774,
+            989–992; <rs type="bibl" key="bibl:17892">Lecomte, Publication</rs> 262. Unter Briefkonzepten Ruinarts aus
+            dem Frühjahr 1709 in BN FF 19665 (u. a. an Anselm Fischer: 81r–v, 85r–v; Placidus Mayrhauser: 84r–v; vgl.
+            <rs type="bibl" key="bibl:20204">Wallnig, Pez und Mauriner</rs> 162) findet sich kein „Standardtext“ einer
+            Enzyklik. Möglicherweise gebrauchte Ruinart noch Exemplare der gedruckten Enzyklik von 1702.</note>
+         <note target="#range(right('n6'), left('n6e'))" n="6" anchored="false" corresp="#seg4">RMs Enzyklik wurde im
+            Sommer 1710 versendet; zu Überlieferungen vgl. <ref type="letter" target="letter:113">113</ref>. Der
+            Fragenkatalog in <ref target="letter:113#seg6">6</ref> entspricht inhaltlich diesem Rundschreiben.</note>
+         <note target="#range(right('n7'), left('n7e'))" n="7" anchored="false" corresp="#seg5">RM scheint nicht bewusst
+            zu sein, dass von Du Pins „Nouvelle bibliothèque“ 1692–1693 zu Paris drei Bände einer lateinischen
+            Übersetzung erschienen waren; vgl. <ref type="letter" target="letter:143">143</ref> <ref
+               target="letter:143#seg16">16</ref>. Zu BPs Kenntnis des Französischen vgl. <ref type="letter"
+               target="letter:68">68</ref> <ref target="letter:68#seg3">3</ref>, <ref type="letter" target="letter:154"
+               >154</ref> <ref target="letter:154#seg14">14</ref>.</note>
+         <note target="#range(right('n8'), left('n8e'))" n="8" anchored="false" corresp="#seg5">Vgl. <ref type="letter"
+               target="letter:143">143</ref> <ref target="letter:143#seg16">16</ref>, <ref type="letter"
+               target="letter:379">379</ref> <ref target="letter:379#seg5">5</ref>, <ref type="letter"
+               target="letter:384">384</ref> <ref target="letter:384#seg6">6</ref>.</note>
+      </listAnnotation>
+      
+      <!-- besserer Ort für allgemeine Sekundärliteratur, da nicht im engeren Sinne Metadaten -->
+      <listBibl>
+         <head>Literatur</head>
+         <!-- Vorschlag für eine alternative Kodierung, die die Stellenangabe auszeichnet und die Anmerkung
+            von der Titelangabe trennt --> 
+         <bibl corresp="bibl:16792"><title type="short">Hammermayer, Forschungszentren</title> <biblScope>182</biblScope></bibl>
+         <bibl corresp="bibl:17432"><title type="short">Katschthaler, Briefnachlass</title> <biblScope>26</biblScope><note
+            >nennt den Brief nicht, gibt aber Inhalte wieder</note></bibl>
+         <bibl corresp="bibl:17892"><title type="short">Lecomte, Publication</title> <biblScope>268</biblScope></bibl>
+         <bibl corresp="bibl:37320"><title type="short">Schönhofer, Pez</title> 20</bibl>
+         <bibl corresp="bibl:20068"><title type="short">Vanel, Savants lyonnais</title> <biblScope>346f</biblScope></bibl>
+      </listBibl>
+   </standOff>
+   
+   <!--  Innerhalb des Elementes <text> sollte sich der eigentliche Text der edierten Vorlage befinden. Für Editorische
+      Angaben, Kommentierungen, Metadaten etc. befinden sich die passenden Stellen im <teiHeader> und in <standOff>, wie
+      oben näher ausgeführt.
+         Im folgenden wurde daher die vorhandene Struktur abgeändert:
+            - die bisherigen Angaben aus <front> wurden an die passenden Stellen im <teiHeader> verschoben;
+            - die bisherigen Kommentare aus <back> wurden an die passenden Stellen in <teiHeader> bzw. <standOff>
+              (betrifft die einzelnen Stellenkommentare) verschoben;
+            - die Adresse wurde in <front> verschoben, wobei die bisherige Hervorhebung durhc Kursivierung in eine
+              semantische Kodierung geändert wurde (Text der Vorlage is Inhalt des <p>, während die Anmerkung zur
+              Adresse als <note> hinterlegt ist);
+            - die Anrede (Annahme: erstes p im Text der Vorlagendatei) wurde als <opener> innerhalb von <body> kodiert;
+            - Schlußformeln (alle <p>, die auf die 2. <p> der Vorlagendatei folgen) wurden als <closer> innerhalb von
+              <body> kodiert.
+      Durch diese Eingriffe kann die vorgesehene Trennung von Originaltext und Editorik erreicht werden.
+         Generelle Anmerkung zu <rs>: Dieses Element sollte immer mit dem Attribut @type versehen werden, um die genau
+      Art der referenzierten Entität anzugeben (hiervon kann abgesehen werden, wenn für jede Art von Entität eine eigene
+      private URI mit „sprechendem“ Präfix, z.B. „per:gnd:1234567“ oder „per:pez_bernhard“, verwendet wird; vgl. auch
+      oben im <teiHeader> zu <listPrefixDef>). Für die Identifizierung der Entität gibt es verschiedene Mechanismes;
+      hier wurden „private URIs“ verwendet (s. o.), die allerdings korrekterweise im Attribut @target hinterlegt sein
+      sollten. Das Attribut @key dient der internen Identifizierung ohne direkte technische Verknüpfung, z. B. mit einer
+      reinen Text-Angabe.-->
+   <text>
+      <front>
+         <p>Plurimum reverendo religiosissimo et clarissimo domino et patri Bernardo Pez exempti monasterii Mellicensis in Inferiori Austria ad Danubium ordinis sancti Benedicti capitulari ac bibliothecae praefecto, patrono colendissimo. Mölckh.<note type="annotation">Überliefert in StiA Melk, Karton 7 Patres 9, Abschriftencodex 117r.</note></p>
+      </front>
+      <body>
+         <!--  Der einzelne, lange Absatz mit verschiedenen <seg> wurde hier in einzelne <ab> mit dem Attribut @resp
+            aufgeteilt. Dieses Vorgeben macht den Text etwas leichter lesbar. Dieser Eingriff rechtfertigt sich aus dem
+            Grundsatz des semantischen Markups, das Strukturen wiedergibt und nicht (zumindest nicht zwangsläufig) die
+            Gestalt der Vorlage. Daher ergibt sich alleine aus der Kodierung auch keine Aussage über die Darstellung in
+            einem späteren Druck oder online. Die erstellten Blöcke haben jeweils eine eigene ID erhalten, mittels derer
+            direkt auf sie verlinkt werden kann.
+               Das gewählte Element <ab> ist ähnlich einem Absatz, besitzt aber keinerlei semantische Aussage über den
+            Inhalt, eine Gleiderungseigenschaft o. dgl. Es bietet sich damit insbesondere für den Gebrauch in dieser
+            Situation an, da nicht behauptet wird, es würde in der Vorlage ein Absatz vorhanden sein (was durch eine
+            Verwendung von <p> auch nicht behauptet würde, doch hat <p> eben explizit die Bedeutung eines „Absatzes“).
+            Durch die Angabe von @resp ist klar, daß es sich bei den Blöcken um einen editorischen Eingriff handelt (in
+            diesem Fall wird auf ein Element mit der ID „editor“ verwiesen, das oben im <teiHeader>, innerhalb des
+            <titleStmt> definiert ist).
+               Die Verwendung von <seg> ist hier nicht grundsätzlich falsch; die Definition der TEI ist lediglich, daß
+            es sich hierbei um eine kleinere Unterteilung handelt, die sich aus vom Editor gewählten Texteigentschaften
+            ergeben kann. In der Regel handelt es sich dabei aber um kürzere Abschnitte, z. B. nur wenige Sätze oder gar
+            nur Teile von Sätzen. -->
+         <opener><pb n="1r"/><app>
+               <lem wit="#B">Reverende admodum pater ac religiosissime domine</lem>
+               <witDetail wit="#C">In <ref target="#C">C</ref> statt der Anrede:</witDetail>
+               <rdg wit="#C">Reverendo patri Bernardo Pez Melli censi monacho ac bibliothecario.</rdg></app>.</opener>
+         <!--  Die bisherigen <seg type="lemma"> für die Verknüpfung von Stellenkommentaren wurden durch <anchor>
+            ersetzt, auf deren IDs die Kommentare verweisen (vgl. dazu auch oben zu <standOff>, <listAnnotation>). Einer
+            der wichtigsten Vorteile ist, daß die Stellenkommentare mit mehreren Abschnitten verknüpft werden können und
+            diese Abschnitte nicht an die Absatz- (oder eine andere) Struktur gebunden sind.
+               Unbüblich sind die Attribute @n in <lem> mit der Kurzform – vgl. auch oben zu <mentioned> in <note> –,
+            diese beziehen sich auf eine Besonderheit der Druckausgabe; praktisch läßt sich diese Angabe aus den
+            vorhandenen Informationen extrahieren. Hier wurden sie manuell entfernt.
+               Die Verwendung der Attribute @target und @wit in einem <witDetail>, das direkt in <rdg> steht, ist nicht
+            notwendig, da sich die Zuordnung unmittelbar aus der Position ergibt. Eine Angabe von @target ist nötig,
+            wenn <witDetail> außerhalb eines <rdg> steht; bei @wit dann, wenn sich der Inhalt des Elementes auf mehr
+            Zeugen bezieht, als im rdg vorhanden (auch in diesem Fall sollte das Element außerhalb von <rdg> stehen). Es
+            ist denkbar, <witDetail> immer außerhalb von <rdg> zu stellen, um dort nur die Lesart zu hinterlegen. Dies
+            wurde hier exemplarisch umgesetzt.
+               Es finden sich an einigen Stelle noch verbliebene <note> – diese ließen sich meistens auf eine passendere
+            Kodierung anpassen. An einigen Stellen wurden diese Kodierungen manuell umgesetzt; die meisten dieser
+            Änderungen sind automatisierbar.
+            witDetail mit mentioned und anderen prüfen. -->
+         <ab xml:id="seg1"><app>
+               <lem wit="#B">Cum nihil aequius esse videatur, quam ut fratres ad eiusdem familiae decus promovendum
+                  conspirantes mutuo sese auxilio iuvent, is nedum urbanitatis, sed et humanitatis expers sit, qui
+                  laborum tuorum ordinis nostri gloriae atque utilitati cessurorum consors <pb n="1v"/> esse manum
+                  commodando refugiat. <anchor xml:id="n1"/>Adiutores igitur in partem operis vocati<anchor xml:id="n1e"
+                     /> venire non renuemus</lem>
+               <rdg wit="#C">Nihil aequius videtur, quam ut fratres a fratribus adiuventur, ubi potissimum illi in
+                  eiusdem familiae decus promovendum toto pectore incumbunt. Quin consilium a reverenda paternitate
+                  vestra susceptum laudem mereatur et in ordinis nostri gloriam, immo et totius reipublicae literariae
+                  utilitatem redundet, nemo negaverit. Absit igitur, honorificis laboribus vestris favorem denegemus
+                  manumque commodare detrectemus ei, qui scriptorum nostrorum nominis memoriam cum omni posteritate
+                  adaequare studet. Suppetias lubenter feremus, ut et ipsi ea ratione in operis partem venire
+                  possimus</rdg><!-- im Apparat steht der satzabschließende Punkt HINTER der Sigle. → Sollte hier auch
+                  entsprechend gehandhabt werden, wie auch im <lem> kein Punkt stehen sollte, sondern hinter dem <app>
+                  (wie auch im Druck) --></app>.
+            Me prae caeteris ad ferendam opem, quamcunque potuerim, paratum inveniet reverenda paternitas vestra. Sed
+            moram, quaeso, aliis curis <app><lem wit="#B">iam nimium</lem><rdg wit="#C"/></app>
+            distracto tantillam concedat, donec solutus historiam ordinis <app><lem wit="#C #S">nostri</lem>
+               <rdg wit="#B">nostri ordinis</rdg></app>
+            iam coeptam <app><lem wit="#B #S">persequi</lem><rdg wit="#C">prosequi</rdg></app> valeam.</ab>
+         <ab xml:id="seg2"><app><lem wit="#B">Non te fugit</lem><rdg wit="#C">Novisti sane</rdg></app>,
+            reverende admodum pater, nostrum domnum Joannem Mabillonium <app>
+               <lem>toto orbe eruditionis laude celeberrimum</lem>
+               <rdg wit="#C">toto orbe nominis gloria <sic>celeberrimus</sic></rdg></app>
+            Annales ordinis <app><lem wit="#B">Benedictini</lem><rdg wit="#C">nostri</rdg></app>
+            Latino <app><lem wit="#B">sermone</lem><rdg wit="#C">idiomate</rdg></app>
+            conscribere coepisse. Quatuor iam operis volumina in folio magno omnium eruditorum applausu prodierunt.
+            Quintum, quo rerum historia usque ad sancti Bernardi obitum <app>
+               <lem wit="#B">perducitur</lem><rdg wit="#C">pertexitur</rdg></app>,
+            praelo paratum habebat, cum mors nihil miserans senem <app><lem wit="#B">septuagenario maiorem</lem>
+               <rdg wit="#C">fere octogenarium</rdg></app>
+            e vivis sustulit. Continuandum opus sibi susceperat discipulus eius domnus <app>
+               <lem wit="#B">Theodoricus</lem><rdg wit="#C">Theodericus</rdg></app>
+            Ruinart, sed et ipsum iam manum <app>
+               <lem wit="#B">admovere</lem>
+               <!--<witDetail wit="#C">danach durchgestrichen <mentioned>para</mentioned></witDetail>-->
+               <witDetail wit="#C" place="after" />
+               <rdg wit="#C"><del>para</del></rdg>
+            </app><!-- Der Text von C lässt sich so allerdings nicht wiederherstellen! → Vorschlag zur Lösung; weitere
+               mögliche Variante weiter unten -->
+            meditantem mors <app><lem wit="#B">nondum exsatiata</lem>
+               <rdg wit="#C">inclementer</rdg></app>
+            paucis abhinc mensibus <app><lem wit="#B #C">absumpsit</lem><rdg wit="#S">absumsit</rdg></app>.
+            Ne vero tam praeclarum opus imperfectum iaceret (quod timebant eruditi quique), mihi coepta persequendi
+            provinciam demandarunt superiores <app><lem wit="#B #C">nostrae congregationis</lem>
+               <rdg wit="#C">congregationis nostrae</rdg></app>.
+            <app>
+               <lem wit="#B">Utinam alteri cuipiam peritiori demandassent, ingeniique ac eruditionis tenuitatem iure
+                  merito excusantem audire voluissent! Sed demum detrectatum <pb n="2r"/> onus subire compulsus collum
+                  gemebundus submisi</lem>
+               <rdg wit="#C">Detrectavi quidem diutius, suscepi tandem gemebundus, ingenii ac eruditionis meae
+                  tenuitatis probe conscius</rdg></app>.</ab>
+         <ab xml:id="seg3"><app>
+               <lem wit="#B">Prius tamen, quam operi me accingam</lem><rdg wit="#C">Sed prius</rdg></app>,
+            absolvenda mihi est nova <anchor xml:id="n2"/>editio, <app>
+               <lem>quam suscepi, librorum sancti Irenaei<anchor xml:id="n2e"/> episcopi Lugdunensis et martyris
+                  Adversus haereses</lem>
+               <rdg wit="#C">a me concinnata operum sancti Irenaei episcopi
+                  Lugdunensis ac martyris C.</rdg></app>,
+            quae sub praelo est aestate proxima Deo <app><lem>favente</lem><rdg wit="#C">dante</rdg></app>
+            exitura. His<del><witDetail wit="#C" place="before" />Tum</del><!-- alternativer Vorschlag für Streichungen
+               vor/nach einem Wort -->
+            curis solutus totus in Annales <app><lem>incumbam</lem><rdg wit="#S">incubam</rdg></app>,
+            tumque <anchor xml:id="n3"/>Mabillonii scrinia<anchor xml:id="n3e"/> omnia commentariosque <app>
+               <lem>e</lem><rdg wit="#C">a</rdg><witDetail wit="#C" place="before"><del>a iam</del></witDetail></app>
+            variis monasteriis vel iam missos vel posthac mittendos diligentius recensens inspiciensque, si quid
+            <app><lem>occurrerit</lem><rdg wit="#S">occurrit</rdg></app>,
+            quo <app>
+               <lem>reverendae paternitatis vestrae consilium</lem>
+               <rdg wit="#C">consilium vestrum</rdg></app>
+            iuvari posse putem, id exscribi <app><lem>quantocyusque</lem>
+               <rdg wit="#S">quantociusque</rdg>
+               <rdg wit="#C">et ad <del>vestram</del> paternitatem vestram</rdg></app>
+            mitti curabo.</ab>
+         <ab xml:id="seg4">Iam <app><lem>dudum vota tua adhuc tamen ignota antevenientes</lem>
+               <rdg wit="#C" /></app>
+            <anchor xml:id="n4"/>encyclicas ad Gallicana monasteria litteras <app><lem>scripsimus</lem>
+               <rdg wit="#C">dedimus</rdg></app><anchor xml:id="n4e"/>,
+            <app><lem>quibus inter alia plura de iisdem omnino ea percontamur, quae tu sciscitaris ex nobis</lem>
+               <rdg wit="#C">quibus rogavimus, ut nobiscum communicare dignentur, quaecumque ad
+                  illustrandam ordinis historiam ab anno praesertim 1000 conferre posse noverint, ac inprimis non
+                  omittant viros illustres uniuscuiusque monasterii, et si quid scriptis mandaverint aut iam editum aut
+                  hactenus in bibliothecarum forulis delitescens, id diligenter significent</rdg></app>.
+            <app><lem>Easdem brevi</lem><rdg wit="#C">Post Pascha epistolas</rdg></app>
+            <anchor xml:id="n5"/>iterabo<anchor xml:id="n5e"/>; minusque festinantium tarditatem
+            urgens<del><witDetail wit="#C" place="after" />in viris illustribus</del>
+            virorum illustrium historiae, operum eorum catalogo <app><lem wit="#C #S">etc.</lem><rdg wit="#B" /></app>
+            acrius adhuc insistam. Hoc enim utrique nostrum commune est argumentum, ut de <app>
+               <lem>ordinis scriptoribus</lem>
+               <rdg wit="#C"><del>viris illustri</del> ordinis nostri viris illustribus</rdg></app>
+            agamus; cum eo <app><lem wit="#C #S">tantum</lem><rdg wit="#B">tamen</rdg></app>
+            discrimine, quod <app><lem>id operis tui primarium ac praecipuum sit caput, mei vero accessio quaedam</lem>
+               <rdg wit="#C" /></app>;
+            <app><lem>quaeque</lem><rdg wit="#C">quae</rdg></app>
+            tu<add place="after"><witDetail wit="#C" />reverende admodum pater</add>
+            fusiori<del><witDetail place="before" wit="#C" />fusiori st</del>
+            ac enucleatiori stylo <app><lem wit="#C #S">persecuturus</lem><rdg wit="#B">prosecuturus</rdg></app>
+            es, <app><lem>eadem</lem><rdg wit="#S">eodem</rdg></app>
+            ego breviori <app><lem wit="#C #S">complexurus</lem><rdg wit="#B">complexus</rdg></app>
+            sum. Tantisper igitur exspectare si velis, donec a caeteris negotiis vacuus operi <pb n="2v"/> manum
+            <app><lem wit="#C #S">admoveam</lem><rdg wit="#B">adhibeam</rdg></app>,
+            quidquid<add place="before"><witDetail wit="#C" />si</add>
+            sub manum venerit, quod in rem tuam faciat, id ex animo communicabo. Nam alioqui turbulentis hisce
+            temporibus quidpiam ad vos <app><lem>tuto</lem><rdg wit="#C" /></app>
+            transmittere <app><lem>difficillimum esset</lem>
+               <rdg wit="#C">vix ac ne vix quidem possemus</rdg></app>.</ab>
+         <ab xml:id="seg5">Interim, <app><lem>reverende admodum pater</lem>
+               <rdg wit="#C" /></app>,
+            tibi omnino <app><lem>comparanda sunt</lem><rdg wit="#C"><add place="above">comparanda sunt</add></rdg></app>
+            nec segni manu evolvenda<del><witDetail wit="#C" place="after" />sunt</del>
+            priora quatuor Annalium ordinis nostri volumina a Mabillonio in lucem emissa. Neque te laboris poenitebit:
+            plura enim in iis <app><lem>de scriptoribus nostris dicta</lem>
+               <rdg wit="#C">haud dubie</rdg></app>
+            reperies, quae ad rem tuam faciant quam maxime. Idem fere dixerim de Actis sanctorum ordinis nostri ab eodem
+            Mabillonio collectis novem voluminibus in folio, quorum singulis praemissae sunt praefationes omni
+            eruditionis genere refertae. Idem etiam de Veteribus analectis quatuor <app><lem>voluminibus</lem>
+               <rdg wit="#C">tomis</rdg></app>
+            in octavo et de Veterum scriptorum spicilegio <app><lem>13</lem><rdg wit="#C"><gap /></rdg></app>
+            voluminibus in quarto, quos quidem libros commemoro, <app><lem>quia licet iam dudum</lem>
+               <rdg wit="#C" cause="dittography" /></app><!-- Dittographie zur Kodierung der Wiederholung des Lemmas -->
+            tum a Mabillonio, tum ab aliis <app><lem>e</lem><rdg wit="#C" /></app>
+            nostris vulgati sint, iamque in his ipsis regionibus rarissimi<add place="after"><witDetail wit="#C"
+               />sint</add>,
+            in vestras remotiores nondum forte penetrare potuerint. <anchor xml:id="n6"/>Si Gallice nosset<anchor
+               xml:id="n6e"/> reverenda paternitas vestra, consulerem etiam, sibi emeret <app>
+                  <lem>Gallice scriptum</lem><rdg wit="#C">Gallicum</rdg></app>
+            librum, cui titulus est: Bibliotheca <app><lem wit="#C #S">auctorum</lem><rdg wit="#C">authorum</rdg></app>
+            ecclesiasticorum ab Elia Du Pin doctore <app><lem>theologo</lem><rdg wit="#C" /></app>
+            Parisiensi collecta et in plures tomos in octavo distributa, in qua auctorum omnium ecclesiasticorum
+            librorumque ab iis conscriptorum <pb n="3r"/> historia, catalogus et argumentum a primis ecclesiae
+            temporibus ad nostra usque pertexitur, auctoresque etiamnum viventes recensentur. Hic nequicquam mentionem
+            inicerem Guillelmi <anchor xml:id="n7"/>Cave Angli Historiae litterariae<anchor xml:id="n7e"/> scriptorum
+            ecclesiasticorum a Christo nato ad annum usque 1517 duobus tomis in folio. Cum enim Genevae excusa sit anno
+            1693, haud<del><witDetail wit="#C" place="before" />forte ad vos usque pervenit</del>
+            dubium, quin ad vos usque pervenerit. <app>
+               <lem>Bibliothecae Cluniacensis, Cisterciensis, Floriacensis variaeque Auberti Miraei
+                  <app><lem>elucubrationes</lem><rdg wit="#S">lucubrationes</rdg></app> libri notissimi sunt</lem>
+               <rdg wit="#C" /></app>.
+            Haec interim ad reverendam paternitatem vestram<del><witDetail wit="#C" place="after" />scr</del>
+            rescribo, donec alia, quae<del><witDetail wit="#C" place="after" />votis eius</del>
+            exspectationi<add place="before"><witDetail wit="#C" />ac</add>
+            <app><lem>eius</lem><rdg wit="#C"><add place="above">eius</add></rdg></app>
+            paulo magis respondeant, scribere possim. </ab>
+         <ab xml:id="seg6">Sed si quid pro votis deinceps<del><witDetail wit="#C" place="after"
+               />communi</del>
+            vobiscum <app><lem>communicare valeam</lem><rdg wit="#C">communicem</rdg></app>,
+            spero vicissim ea a vobis <app><lem>pro humanitate vestra subsidia</lem>
+               <rdg wit="#C">subsidia mihi</rdg></app>
+            non denegatum iri, quae ad illustrandam tum Mellicensis, tum vicinorum monasteriorum historiam conferre
+            posse intellexeritis: <app><lem>qualia sunt</lem><rdg wit="#C">qualis est</rdg></app>
+            <app>
+               <lem>fundationis monasteriorum origo et historia, privilegia et immunitates; fundatorum ac praecipuorum
+                  benefactorum nomina, dotes et chartae donationum; abbatum series, viri illustres ac tum horum, tum
+                  illorum praecipua quaeque gesta, scripta, dies obitus etc.; quid memoria dignius in monasteriis
+                  acciderit; antiqua, si quae sint, summorum pontificum, imperatorum, regum aut aliarum nobilium
+                  personarum diplomata; vetera monumenta, <app><lem>sepulchra</lem><rdg wit="#S">sepulcra</rdg></app>,
+                  epitaphia, inscriptiones et alia id genus, quae Annalibus <pb n="3v"/> inseri pro iure suo
+                  debeant</lem>
+               <rdg wit="#C"><del>abbatum vestr</del> fundationis vestrae
+                  historia, fundatorum ac praecipuorum benefactorum nomina, abbatum vestrorum series, viri illustres ac
+                  tum horum, tum illorum praecipua quaeque gesta, scripta, dies obitus etc.; antiqua, si quae habeatis,
+                  imperatorum ac summorum pontificum diplomata, vetera monumenta, epitaphia et alia id genus</rdg></app>.
+            Cuius quidem investigationis curam nollem, sibi <app><lem>ipsi sumeret</lem>
+               <rdg wit="#C">sumeret ipsa</rdg></app>
+            reverenda paternitas vestra; absit enim, ut a melioribus studiis eam interpellem; sed forte benevolos
+            quospiam e suis reperiet, qui hanc a me, <app>
+               <lem><app><lem>imo</lem><rdg wit="#S">immo</rdg></app> a toto ordine Benedictino</lem>
+               <rdg wit="#C" /></app>
+            gratiam inire non dedignabuntur. <app>
+               <lem>Utere tu, reverende admodum pater, meam operam, ut voles: totum</lem>
+               <rdg wit="#C">Quidquid est operae meae quantulaecumque, id tibi lubens offero;
+                  totumque</rdg></app>
+            me tibi mandatisque tuis<add place="after"><witDetail wit="#C" />ex animo</add>
+            addico.
+         </ab>
+         <ab xml:id="seg7">Hanc epistolam ad reverendum patrem Mauritium Müllerum S. Galli <app>
+               <lem>bibliothecae praefectum</lem>
+               <rdg wit="#C">bibliothecarium</rdg></app>
+            mitto, ut tibi perferendam curet. Neque enim alia scribendi suppetit via, donec tam diu optatam pacem
+            <app><lem>Deus terris</lem><rdg wit="#C">terris Deus</rdg></app>
+            reddiderit. <app><lem>Vale, reverende admodum et erudite pater</lem>
+               <rdg wit="#C">Vale, admodum reverende ac erudite <subst><add>erudite</add>
+                     <del>de</del></subst> pater</rdg><witDetail wit="#C">C endet hier</witDetail></app>
+            ac religiosissime domine, cuius consila fortunet Deus, precor.</ab>
+         <closer>Reverendae admodum paternitatis ac religiosissimae dominationis vestrae devotissimus et
+            obsequentissimus in Christo servus ac frater frater Renatus Massuet monachus Benedictinus
+            <app><lem>manu propria</lem><rdg wit="#S" /></app>.</closer>
+         <closer>Parisiis. In monasterio S. Germani a Pratis die 7. Martii 1710.</closer></body>
+      <back><div/><div/></back>
+   </text>
+</TEI>

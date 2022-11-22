@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../schema/dqioeg.rng" type="application/xml" ?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <!-- Metadaten
+      - alggemeine Metadaten zur Erstellung der Datei
+      - Metadaten und Beschreibung der Quelle(n)
+      - Beschreibung der Edition
+      - Angaben über die Veröffentlichung etc.
+   -->
+   <teiHeader>
+      <!-- Beschreibt die vorliegende Datei
+         - Angaben zur Quelle → sourceDesc
+      -->
+      <fileDesc>
+         <!-- allgemeine Titelei der Datei -->
+         <titleStmt>
+            <!-- Titel
+               - Haupt- und ggf. Untertitel der in dieser Datei enthaltenen Editionseinheit bzw. des digitalen Textes
+               - Titel der Quelle → sourceDesc
+               - Angaben wie „digitale Edition“ → editionStmt
+            -->
+            <title type="main"><!-- Haupttitel --></title>
+            <title type="short"><!-- ggf. Untertitel --></title>
+            
+            <author><!-- 
+               ein „primärer Beiträger“ – Verfasser des Inhaltes der Datei; je Person wiederholen
+               - bei Einleitungen etc. = Verf. der Datei;
+               - bei Editionstexten entweder der originale Autor oder nicht vergeben (dann → sourceDesc)
+         --></author>
+            
+            <editor><!--
+               ein „sekundärer Beiträger“ – Editor i. S. einer hist.-krit. Edition; je Person wiederholen
+               - nur bei edierten Texten sinnvoll
+               - Herausgeber der Edition etc. → editionStmt
+               - Hrsg. der Reihe etc. → publicationStmt
+               - bei gemeinschaftlich bearbeiteten Texten kann auch eine summarische Angabe in → editionStmt erfolgen
+         --></editor>
+            
+            <respStmt>
+               <!-- ggf. „sonstige Beiträger“, je eine Angabe pro Art des Beitrages -->
+               <resp><!-- Art des Beitrages, z. B. „Transkription“, „Konversion“ etc. --></resp>
+               <persName><!-- Name einer beitragenden Person; je Person wiederholen --></persName>
+            </respStmt>
+         </titleStmt>
+         
+         <!--  Angaben zur Edition des Originales durch die vorliegende Edition -->
+         <editionStmt>
+            <edition><!--
+               Angabe zur Edition, z. B. „Digitale Edition“ oder „Studienausgabe“; kann wiederholt werden
+         --></edition>
+            
+            <respStmt>
+               <!-- Angaben zu Beiträgen; je Beitragsart wiederholen
+                  - z. B. auch Herausgeber der Edition
+                  - z. B. auch Sammelangabe aller Editorinnen
+                  - vgl. auch oben innerhalb von titleStmt
+               -->
+               <resp><!-- Angabe wie „hrsg. von“ oder „bearb. von” --></resp>
+               <persName><!-- Name einer beitragenden Person; je Person wiederholen --></persName>
+            </respStmt>
+
+            <funder><!-- ggf. Angaben zur fördernden Institution --></funder>
+         </editionStmt>
+
+         <!-- Angaben zur Veröffentlichung -->
+         <publicationStmt>
+            <!-- publisher = Name der veröffentlichenden Institution -->
+            <publisher>Institut für Österreichische Geschichtsforschung</publisher>
+            
+            <distributor><!-- ggf. Name der „vertreibenden“ oder bereitstellenden Institution
+               - z. B. Verlag oder ACDH-CH
+               - kann wiederholt werden
+         --></distributor>
+         </publicationStmt>
+         
+         <!-- Angaben zum gesamten Edition innerhalb der dQIÖG -->
+         <seriesStmt>
+            <!-- Titel der Reihe, lang oder abgekürzt -->
+            <title>Digitale Quellenreihe des Institut für Österreichische Geschichtsforschung</title>
+            <biblScope><!-- Zählung innerhalb der Reihe --></biblScope>
+         </seriesStmt>
+         
+         <!-- Angaben zur Editionseinheit innerhalb der gesamten Edition -->
+         <seriesStmt>
+            <title><!-- Titel der Edition --></title>
+            <idno><!-- Zählung innerhalb der Edition, z. B. „48“ oder „Urkunde 4“; kann wiederholt werden --></idno>
+         </seriesStmt>
+         
+         <!-- weitere ergänzende Angaben -->
+         <notesStmt>
+            <!-- Angaben zu weiteren Ausgaben, Kategorisierung über das Attribut @type; kann für verschiedene Kategorien
+               von Relationen wiederholt werden.
+               
+               Inhalt eines <relatedItem> kann sein:
+               - genau ein <bibl> – hierzu siehe unten, <standOff>, <listBibl>
+               - genau eine <listBibl> – hierzu siehe unten, <standOff>, <listBibl>
+
+               Beispiele für Kategorisierungen:
+               - Abdruck dieser Edition (z. B. type="publishedIn")
+               - andere Editionen (z. B. type="otherEdition")
+            -->
+            <relatedItem type="(Relation)">
+               <bibl><!-- zu bibl s. unten zu <standOff>, <listBibl>, <bibl> --></bibl>
+            </relatedItem>
+            <relatedItem type="(Relation)">
+               <listBibl>
+                  <bibl><!-- zu bibl s. unten zu <standOff>, <listBibl> --></bibl>
+               </listBibl>
+            </relatedItem>
+
+            <!-- weitere allgemeine Anmerkungen, die nicht an eine andere, genauere Stelle passen; eine Kategorisierung
+               kann über das Attribute @type vorgenommen werden; kann bei Bedarf wiederholt werden. -->
+            <note><!-- beliebiger Volltext --></note>
+         </notesStmt>
+
+         <!-- Beschreibung des edierten Textes, der Editionsvorlagen und Textzeugen -->
+         <sourceDesc>
+            <!-- bei edierten Texten: Beschreibung der Textzeugen
+               - für jeden Textzeugen einen <witness>-Eintrag erstellen
+               - Art des Textzeugen über Kodierung im Attribut @ana angeben, z. B. mit CMIF-Angaben
+               - ein leeres <witness>-Element mit einer Angabe wie ana="cmif:manuscript" ergibt, daß dieser Art von
+                  Zeuge nicht vorhanden ist (also z. B. kein Originalmanuskript existiert
+               - jedes <witness>-Element sollte ein Attribut @xml:id enthalten, das wie eine Sigle vergeben werden kann
+            -->
+            <listWit>
+               <!-- Beispiel für eine Angabe, daß kein Originalmanuskript existiert -->
+               <witness ana="cmif:manuscript" />
+
+               <!-- Beispiel für ein Konzept mit Sigle B, das detaillierter beschrieben wird -->
+               <witness xml:id="B" ana="cmif:copy">
+                  <msDesc>
+                     <!-- enthält eine Beschreibung einer Handschrift oder eine Alten Druckes 
+                        statt der allgemeinen Beschreibung in <ab> kann alternativ auch eine detailliertere Beschreibung
+                        vorgesehen werden, die genauere Kodierung benötigt
+                     -->
+                     <ab><!-- Volltext --></ab>
+                  </msDesc>
+               </witness>
+
+               <!-- Beispiel für einen späteren Abdruck, der als bibliographische Angabe beschrieben ist -->
+               <witness xml:id="C" ana="cmif:draft">
+                  <bibl><!-- bibliographische Angabe, vgl. unten zu <standOff>, <listBibl>, <bibl> --></bibl>
+               </witness>
+            </listWit>
+
+            <!-- Bei Texten ohne Vorlage, wie z. B. Einleitungen, stattdessen
+               <ab>born digital</ab>
+            -->
+         </sourceDesc>
+      </fileDesc>
+
+      <!-- Beschreibung, wie die (digitale) Edition aus der Vorlage erstellt wurde -->
+      <encodingDesc>
+         <!-- ggf. Beschreibung der Zusammenstellung des Editionstextes oder eines Corpus -->
+         <samplingDecl>
+            <ab><!-- Freitextangabe, z. B. welche Textzeuge wo herangezogen wurden --></ab>
+         </samplingDecl>
+         
+         <!-- ggf. Beschreibung der Editionsrichtlinien -->
+         <editorialDecl>
+            <ab><!-- Freitextangabe; Element kann wiederholt werden.
+               - Alternativ kann auch eine komplexere Kodierung vorgesehen werden
+               - Es ist auch möglich, auf eine andere Datei zu verweisen
+         --></ab>
+         </editorialDecl>
+         
+         <!--  Beschreibung von URI-Kürzeln
+               Für Verweise im Text und auf andere Texte oder auf Deifnitionen von Personen, Orten und auch
+            bibliographische Angaben können sog. „private URIs“ verwendet werden (diese haben die Form „Präfix:ID“);
+            der Vorteil dieses Vorgehens ist eine kurze, konzise Schreibweise und das Vermeiden, URLs fest
+            einzutragen, die später ggf. massenhaft geändert werden müßten.
+               Damit nachvollziehbar ist, wie diese Kürzel  aufzulösen sind (d. h. wie hieraus eine korrekte, les- und
+            verarbeitbare URL erstellt werden kann), müssen die verwendeten URIs definiert und eine Auflösung
+            angegeben werden.
+         -->
+         <listPrefixDef>
+            <!-- Für jedes Kürzel ist ein <prefixDef>-Eintrag zu erstellen -->
+            <prefixDef ident="index" matchPattern="(.+)" replacementPattern="$1">
+               <!-- Attribute:
+                  - @ident: Angabe des Präfixes
+                  - @matchpattern: Regulärer Ausdruck für die Analyse der ID
+                  - @replacementPattern: volle Auflösung zu einer URL
+               -->
+               <ab><!-- optional: menschenlesbare Beschreibnung dieser Verweise --></ab>
+            </prefixDef>
+         </listPrefixDef>
+      </encodingDesc>
+
+      <!-- ggf. Angaben über weitere, nicht-bibliographische Aspekte des Textes
+         - bei Bedarf können weitere Kodierungen für Angaben z. B. zu verschiedenen Schreiberhänden ergänzt werden.
+      -->
+      <profileDesc>
+         <!-- ggf. Beschreibung einer Brief-Korrespondenz -->
+         <correspDesc>
+            <!-- Angaben zum Absender, Absendeort und -datum -->
+            <correspAction type="sent">
+               <!-- ggf. Absender, kann bei Bedarf für mehrere Absender wiederholte werden
+                  - kann (und sollte) im Attribut @ref einen Verweis auf einen Registereintrag enthalten
+               -->
+               <persName ref="(Verweis)"><!-- Freitext --></persName>
+
+               <!-- ggf. Absendetatum; sollte ein ISO-kodiertes Datum im Attribut @when enthalten -->
+               <date when="2022-11-20"><!-- ggf. eine Angabe als Freitext --></date>
+
+               <!-- ggf. Absendeort
+                  - kann (und sollte) im Attribut @ref einen Verweis auf einen Registereintrag enthalten
+               -->
+               <placeName ref="(URL)"><!-- Freitext --></placeName>
+            </correspAction>
+
+            <!-- Angaben zum Empfänger, Empfangsort und -datum -->
+            <correspAction type="received">
+               <!-- Absender, kann bei Bedarf für mehrere Absender wiederholte werden
+                  - kann (und sollte) im Attribut @ref einen Verweis auf einen Registereintrag enthalten
+               -->
+               <persName ref="(Verweis)"><!-- Freitext --></persName>
+
+               <!-- Absendetatum; sollte ein ISO-kodiertes Datum im Attribut @when enthalten -->
+               <date when="2022-11-21"><!-- ggf. eine Angabe als Freitext --></date>
+
+               <!-- Absendeort
+                  - kann (und sollte) im Attribut @ref einen Verweis auf einen Registereintrag enthalten
+               -->
+               <placeName ref="(URL)"><!-- Freitext --></placeName>
+            </correspAction>
+            
+            <!-- Verweise auf zugehörige Korrespondenz -->
+            <correspContext>
+               <!-- Verweis auf vorhergehenden Brief, hier Beispiel mit einem Verweis als private URI -->
+               <ptr type="prev" target="letter:24" />
+               
+               <!-- Verweis auf den nächsten Text, hier Beispiel mit Freitext im Verweise -->
+               <ref type="next" target="letter:68"><!-- Freitext --></ref>
+               
+               <!-- weitere Verweise können als <ptr> oder <ref> gemacht werden. Komplexere Angaben können innerhalb
+                  eines <ab> gemacht werden -->
+            </correspContext>
+         </correspDesc>
+         
+         <!-- ggf. Regest des edierten Textes
+            - Zusammenfassung eines elektronisch erstellten Textes → front
+         -->
+         <abstract>
+            <p><!-- Freitext, kann bei Bedarf wiederholte werden
+               - ggf. kann über das Attribut @corresp eine Verknüpfung mit einer Stelle im Text vorgenommen werden
+         --></p>
+         </abstract>
+      </profileDesc>
+   </teiHeader>
+   
+   <!-- ggf. Angaben zu verknüpften Daten oder gesammelte Anmerkungen, z. B.
+      - Liste mit Sekundärliteratur
+      - Sachanmerkungen, die nicht mit nur einer Stelle im Text verknüpft sind, sondern mit einem Bereich
+      - Bei Bedarf sind auch Angaben zu Personen, Orten, Körperschaften, Ereignissen möglich, wenn diese nicht in einem
+        Register für die gesamte Edition zusammengefaßt sind
+   -->
+   <standOff>
+      <!-- Liste (thematisch/systematisch) zusammengehöriger Anmerungen
+         - ggf. kann im Attribut @type eine Kategorisierung vorgenommen werden
+         - Anmerkungen, die nicht an ihrer Stelle „verankert“ sind (d. h. nicht unmittelbar bei dem Text stehen, auf
+           den sie sich beziehen, verweisen auf <anchor>-Elemente im Text (sowohl mehrere einzelne als auch auf ein oder
+           mehrere Paare, die Bereiche begrenzen): der Verweis erfolgt von der <note> (mittels des @target-Attributes)
+           auf die entsprechende Stelle(n).
+         - „klassische“ Fußnoten sind „verankerte“ Anmerkungen, die an ihrer Stelle im Text angebracht werden können und
+           keinen Verweismechanismus benötigen.
+      -->
+      <listAnnotation type="commentary">
+         <note target="#range(right('n1'), left('n1e'), …)" n="1" anchored="false"><!--
+            - Attribut @target für den Verweise auf den oder die Zielbereich(e), hier mit einem XPointer
+            - Attribut @n für die Zählung
+            - Attribut @anchored muß hier immer "false" sein
+            - Freitext innerhalb der Anmerkung
+      --></note>
+      </listAnnotation>
+
+      <!-- Sekundärliteratur -->
+      <listBibl>
+         <!-- Beispiel für einen Eintrag, der auf einen Registereintrag verweist, mit Kurztitel und Seitenangabe -->
+         <bibl corresp="(Verweis)"><title><!-- Kurztitel --></title> <biblScope><!-- Seitenangabe --></biblScope></bibl>
+
+         <!-- Beispiel für eine lange Angabe, mit ID für Verweise aus dem Text -->
+         <bibl xml:id="(ID)"><!-- volle Angabe --><note><!-- ggf. Anmerkung zu diesem Eintrag --></note></bibl>
+      </listBibl>
+   </standOff>
+   
+   <!-- Text -->
+   <text>
+      <!-- ggf. Teile vor dem Haupttext
+         - Titelseiten, Inhaltsverzeichnise, Adressen, etc.
+      -->
+      <front>
+         <!-- Kann einen oder mehrere Absätze enthalten 
+            Bei Bedarf können speziellere Elemente z. B. für Titelseiten ergänzt werden.
+         -->
+         <p><!-- einfacher Absatz, kann wiederholt werden --></p>
+      </front>
+      <!-- Hauptteil des Textes -->
+      <body>
+         <!-- ggf. einleitender Text, wie Grüße etc. -->
+         <opener><!-- Freitext --></opener>
+
+         <!-- Sinnabschnitte im Text -->
+         <div>
+            <!-- ggf. Überschrift -->
+            <head></head>
+            
+            <!-- einer oder mehrere Absätze -->
+            <p>
+               <!-- Text, mit
+                  - Seiten, Spalten, Zeilen
+                  - textkritische Anmerkungen; Details ggf. zu besprechen
+                     → app(lem + rdg)
+                     → subst(add+del)
+                     → choice(sic+corr)
+                  - Sachanmerkungen
+               -->
+            </p>
+         </div>
+      </body>
+
+      <!-- ggf. abschließende Inhalte, nach dem Haupttext -->
+      <back>
+         <p><!-- Freitext; kann wiederholt werden --></p>
+      </back>
+   </text>
+</TEI>
